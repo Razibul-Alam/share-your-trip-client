@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "title": "Textiles sector Jobs",
+        "category":"textile"
+       
+      },
+    {
+        "id": 2,
+        "title": "Garments sector Jobs",
+        "category":"garment"
+       
+      },
+    {
+        "id": 3,
+        "title": "Power sector Jobs",
+        "category":"power"
+       
+      },
+    {
+        "id": 4,
+        "title": "Ceramics sector Jobs",
+        "category":"ceramic"
+       
+      },
+   
+    {
+        "id": 5,
+        "title": "Oil & Gas sector Jobs",
+        "category":"oil"
+       
+      }
+   
+  ]
