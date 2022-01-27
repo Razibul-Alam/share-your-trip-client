@@ -38,7 +38,7 @@ const MyBlogs = () => {
         <>
         <ModalMessage show={show} setShow={setShow} message={'Succesfully deleted'} />
         <div className='container w-75 my-5'>
-            <h2 className='text-center text-danger mb-5'>The number of Orders {myBlogs?.length}</h2>
+            <h2 className='text-center text-danger mb-5'>The number of Blogs {myBlogs?.length}</h2>
             <Row xs={1} md={3} className="g-4">
            {myBlogs?.map(order=><MySingleBlog order={order} key={order._id} cancelOrder={cancelOrder}/>)}
            </Row>

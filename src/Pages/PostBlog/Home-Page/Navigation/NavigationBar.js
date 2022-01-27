@@ -17,7 +17,7 @@ const NavigationBar = () => {
       <Nav.Link as= {Link} to='/'>Home</Nav.Link>
       <Nav.Link as= {Link} to='/about'>About Us</Nav.Link>
       <Nav.Link as= {Link} to='/post-blog'>Post</Nav.Link>
-      <Nav.Link as= {Link} to='/dashboard'>Dashboard</Nav.Link>
+     {admin&&<Nav.Link as= {Link} to='/dashboard'>Dashboard</Nav.Link>}
     {user.email&&<Nav.Link as={Link} to='/myblogs'>My-Blogs</Nav.Link>}
       {user?.displayName&&<Nav.Link>{user.displayName}</Nav.Link>}
      {user?.email? <Button onClick={logOut}>Logout</Button>

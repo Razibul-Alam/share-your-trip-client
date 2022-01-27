@@ -21,7 +21,7 @@ fetch(`https://dry-mesa-09659.herokuapp.com/allblogs?search=${category}`)
 
     return (
         <div className='container my-5'>
-            <Row xs={1} md={2} className="g-4 mt-3">
+            <Row xs={1} md={3} className="g-4 mt-3">
            {jobs?.map(job=><SingleBlog job={job} key={job._id}/>)}
         </Row>
         </div>

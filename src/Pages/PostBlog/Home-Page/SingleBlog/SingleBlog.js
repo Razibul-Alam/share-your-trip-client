@@ -15,7 +15,7 @@ const SingleBlog = ({job}) => {
       <Card>
         <Card.Img variant="top" src={img} className='img-fluid' />
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
+        <Link to={`/single-blog/${_id}`}> <Card.Title>{title}</Card.Title></Link>
           <Card.Text>
            {place}
           </Card.Text>
@@ -26,7 +26,7 @@ const SingleBlog = ({job}) => {
           </div>
           <div className='d-flex justify-content-between'>
           <button className='btn btn-success'onClick={()=>{addToFavorite(job)}}>Add To favorite</button>
-          <Link to={`/single-blog/${_id}`}>Apply</Link>
+          
           </div>
         </Card.Body>
       </Card>

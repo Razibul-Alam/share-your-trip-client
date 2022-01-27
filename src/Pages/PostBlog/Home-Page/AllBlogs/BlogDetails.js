@@ -18,13 +18,19 @@ const BlogDetails = () => {
     },[])
     console.log(singleBlog)
     return (
-        <div>
+        <div className='d-flex justify-content-center my-5'>
             <Card>
         {/* <Card.Img variant="top" src={img} className='img-fluid' /> */}
         <Card.Body>
-          <Card.Title>{singleBlog?.company}</Card.Title>
+          <Card.Title>{singleBlog?.title}</Card.Title>
           <Card.Text>
-           {singleBlog?.designation}
+          Written by  {singleBlog?.email}
+          </Card.Text>
+          <Card.Text>
+           {singleBlog?.place}
+          </Card.Text>
+          <Card.Text>
+           Estimating-cost {singleBlog?.cost} per person
           </Card.Text>
           <Card.Text>
            {singleBlog?.description}

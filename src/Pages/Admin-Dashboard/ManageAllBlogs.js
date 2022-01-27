@@ -55,16 +55,13 @@ const ManageAllBlogs = () => {
         <>
          <ModalMessage show={show} setShow={setShow} message={'Succesfully deleted'} />
         <div className='container'>
-        <h2 className="text-danger text-center my-3">{allOrders?.length} orders</h2>
+        <h2 className="text-danger text-center my-3">{allOrders?.length} Blogs</h2>
     <Table bordered hover responsive variant='dark'>
     <thead>
       <tr>
         <th>SL</th>
-        <th>Name</th>
         <th>Email</th>
-        <th>Product</th>
-        <th>Phone</th>
-        <th>Address</th>
+        <th>Place</th>
         <th>Status</th>
         <th>Action</th>
         <th>Action</th>
@@ -75,11 +72,8 @@ const ManageAllBlogs = () => {
     
    {allOrders.map((order,index)=><tr>
     <td>{index+1}</td>
-    <td>{order?.name}</td>
     <td>{order.email}</td>
-    <td>{order?.title}</td>
-    <td>{order?.phone}</td>
-    <td>{order?.address}</td>
+    <td>{order?.place}</td>
     <td>{order?.status}</td>
     <td><Button className='me-2' onClick={()=>{approveOrder(order?._id)}}>Approve</Button></td>
     <td><Button variant='danger' onClick={()=>{cancelOrder(order?._id)}}>Cancel</Button></td>

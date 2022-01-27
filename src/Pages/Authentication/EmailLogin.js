@@ -28,7 +28,7 @@ const EmailLogin = () => {
     </form>
     </div>
     </div>
-    {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+    {/* {user?.email && <Alert severity="success">User Created successfully!</Alert>} */}
     </>
     );
 };

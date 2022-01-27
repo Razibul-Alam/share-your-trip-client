@@ -24,7 +24,7 @@ function App() {
             <Routes>
       <Route path="/" element={<HomeMain/>}/>
         <Route path="home" element={<HomeMain/>}/>
-        <Route path="post-blog" element={<PostBlog/>}/>
+        <Route path="post-blog" element={<PrivateRoute><PostBlog/></PrivateRoute>}/>
         <Route path="/single-blog/:blogId" element={<PrivateRoute><BlogDetails/></PrivateRoute>}/>
         <Route path="login" element={<LoginPage/>}/>
         <Route path="email-login" element={<EmailLogin/>}/>

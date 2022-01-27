@@ -43,7 +43,7 @@ const LoginPage = () => {
         <>
         
        <section className="m-auto justify-content-center row bg-dark">
-       {authError && <Alert severity="success">{authError} try again</Alert>}
+       {/* {authError && <Alert severity="success">{authError} try again</Alert>} */}
        <div className="col-lg-6 col-md-6 col-sm-8 my-5">
            <div className="m-2 p-2 bg-light">
                <EmailLogin/>

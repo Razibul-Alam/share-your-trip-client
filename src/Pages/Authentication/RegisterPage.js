@@ -16,7 +16,7 @@ const RegisterPage = () => {
   
     return (
         <>
-        {authError && <Alert severity="success">{authError} try again</Alert>}
+        {/* {authError && <Alert severity="success">{authError} try again</Alert>} */}
         <div className="mt-5 d-flex justify-content-center row">
            <div className="p-4 rounded col-lg-6 col-sm-10 shadow">
            <h2 className="text-center text-danger mb-4">Please Register</h2>

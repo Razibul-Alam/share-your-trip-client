@@ -5,7 +5,7 @@ import useAuth from './../../Hooks/useAuth';
 import ModalMessage from './../Users/ModalMessage';
 
 const PostBlog = () => {
-  const{user}=useAuth()
+  const{user,admin}=useAuth()
     const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
     const [imgUrl,setImgUrl]=useState('')
@@ -14,14 +14,22 @@ const PostBlog = () => {
  
     const onSubmit = data =>{
         console.log(data)
+        let statusInfo=''
+        if(admin){
+statusInfo='Approved'
+        }else{
+          statusInfo='Pending'
+        }
+
         const info={
           place:data.place,
             title:data.title,
             description:data.description,
-            status:'Pending',
+            status:statusInfo,
+            cost:data.cost,
             Date:new Date().toLocaleDateString,
-            email:user.email
-            // img:imgUrl,
+            email:user.email,
+            img:imgUrl,
         }
       axios.post('https://dry-mesa-09659.herokuapp.com/addBlog',info)
       .then(response => { 
@@ -57,14 +65,15 @@ const PostBlog = () => {
    <form onSubmit={handleSubmit(onSubmit)}>
    <input className="form-control mt-2"  type="text" placeholder="Title" {...register("title",{ required: true })} />
    <input className="form-control mt-2"  type="text" placeholder="place" {...register("place",{ required: true })} />
+   <input className="form-control mt-2"  type="text" placeholder="cost" {...register("cost",{ required: true })} />
    <input className="form-control mt-2"  type="textArea" placeholder="Description" {...register("description", { required: true })} />
-   {/* <input className="form-control mt-2"
+   <input className="form-control mt-2"
       type="file"
       {...productImageRegister }
       onChange={e => {
           productImageRegister.onChange(e);
           handleFile(e);
-      }} /> */}
+      }} />
    {errors.exampleRequired && <span>This field is required</span>}
    {uploading?<p>Uploading....</p>:<input className="form-control mt-2 bg-primary"  type="submit"/>}
  </form>

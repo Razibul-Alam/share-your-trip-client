@@ -86,11 +86,11 @@ const savedUserToDatabase=(user)=>{
         // ----
         // check admin
         useEffect(()=>{
-          axios.get(`https://powerful-harbor-60466.herokuapp.com/getAdmin?email=${user.email}`)
+          axios.get(`https://dry-mesa-09659.herokuapp.com/getAdmin?email=${user.email}`)
           .then(res => {
             const isAdmin = res.data;
             setAdmin(isAdmin)
-            
+            console.log(isAdmin)
           })
         },[user.email])
         // logout method
@@ -98,6 +98,7 @@ const logOut=()=>{
   setIsLoading(true)
   signOut(auth).then(() => {
     setUser({})
+    setAdmin(false)
   }).catch((error) => {
     
   }).finally(()=>setIsLoading(false))

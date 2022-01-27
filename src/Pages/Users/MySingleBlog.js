@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button,Col,Card} from 'react-bootstrap'
 const MySingleBlog = ({order,cancelOrder}) => {
-    const{_id,title,status,name,address}=order;
+    const{_id,title,status,place,description}=order;
   
     return (
         <Col>
@@ -11,10 +11,10 @@ const MySingleBlog = ({order,cancelOrder}) => {
               {title}
             </Card.Text>
             <Card.Text className=''>
-             booked by {name}
+            Place: {place}
             </Card.Text>
             <Card.Text className='text-primary'>
-             address: {address}
+              {description}
             </Card.Text>
             <Card.Text className='text-warning'>
              {status}
