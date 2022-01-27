@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
 import HomeSidebar from './../HomeSidebar/HomeSidebar';
 import AllBlogs from './../AllBlogs/Allblogs';
+import Banner from './../Banner/Banner';
+
+
 
 const HomeMain = () => {
     const[category,setCategory]=useState('e')
@@ -8,7 +11,8 @@ const HomeMain = () => {
         setCategory(category)
             }
     return (
-       
+        <>
+        <Banner/>
         <div className='row'>
             <div className='col-lg-3 sidebar'>
           <HomeSidebar selectSector={selectSector}/>
@@ -17,6 +21,7 @@ const HomeMain = () => {
             <AllBlogs category={category}/>
             </div>
         </div>
+        </>
         
     );
 };

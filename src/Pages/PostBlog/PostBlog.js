@@ -1,8 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios'
 import { useForm } from 'react-hook-form';
+import useAuth from './../../Hooks/useAuth';
+import ModalMessage from './../Users/ModalMessage';
 
 const PostBlog = () => {
+  const{user}=useAuth()
     const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
     const [imgUrl,setImgUrl]=useState('')
@@ -12,17 +15,22 @@ const PostBlog = () => {
     const onSubmit = data =>{
         console.log(data)
         const info={
-          category:data.category,
-            company:data.company,
-            designation:data.designation,
+          place:data.place,
+            title:data.title,
             description:data.description,
+            status:'Pending',
+            Date:new Date().toLocaleDateString,
+            email:user.email
             // img:imgUrl,
         }
       axios.post('https://dry-mesa-09659.herokuapp.com/addBlog',info)
       .then(response => { 
-        handleShow()
-        reset()
-      })
+        console.log(response.data)
+        if(response.data.insertedId){
+          handleShow()
+         reset() 
+        }
+      });
      
     }
   
@@ -41,13 +49,14 @@ const PostBlog = () => {
     const productImageRegister = register("productImage", )
     // {required: true}
     return (
+      <>
+      <ModalMessage show={show} setShow={setShow} message={'Submitted'} />
         <div className="mt-5 d-flex justify-content-center row">
         <div className="p-4 rounded col-lg-6 col-sm-10 shadow">
-        <h2 className="text-center text-danger mb-4">Add Car</h2>
+        <h2 className="text-center text-danger mb-4">Create a Blog</h2>
    <form onSubmit={handleSubmit(onSubmit)}>
-   <input className="form-control mt-2"  type="text" placeholder="Company" {...register("company",{ required: true })} />
-   <input className="form-control mt-2"  type="text" placeholder="Factory category" {...register("category",{ required: true })} />
-   <input className="form-control mt-2"  type="text" placeholder="designation" {...register("designation",{ required: true })} />
+   <input className="form-control mt-2"  type="text" placeholder="Title" {...register("title",{ required: true })} />
+   <input className="form-control mt-2"  type="text" placeholder="place" {...register("place",{ required: true })} />
    <input className="form-control mt-2"  type="textArea" placeholder="Description" {...register("description", { required: true })} />
    {/* <input className="form-control mt-2"
       type="file"
@@ -61,6 +70,7 @@ const PostBlog = () => {
  </form>
  </div>
  </div>
+ </>
     );
 };
 

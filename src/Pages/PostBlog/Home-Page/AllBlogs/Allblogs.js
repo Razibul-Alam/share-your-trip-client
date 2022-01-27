@@ -12,7 +12,10 @@ const AllBlogs = ({category}) => {
     useEffect(()=>{
 fetch(`https://dry-mesa-09659.herokuapp.com/allblogs?search=${category}`)
 .then(res=>res.json())
-.then(data=>setJobs(data))
+.then(data=>{
+    const filterData=data.filter(info=>info.status!=='Pending')
+    setJobs(filterData)
+})
     },[category])
     console.log(jobs)
 
