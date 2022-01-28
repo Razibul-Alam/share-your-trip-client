@@ -1,35 +1,40 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { Col,Card,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearchLocation } from '@fortawesome/free-solid-svg-icons';
 
 const SingleBlog = ({job}) => {
-    const{_id,img,title,description,place}=job;
-    const addToFavorite=(job)=>{
-      axios.post('https://dry-mesa-09659.herokuapp.com/addfavorite',job)
-      .then(response => { 
+  const[comment,setComment]=useState([])
+    const{_id,img,title,description,place,email}=job;
+    useEffect(()=>{
+      fetch(`https://dry-mesa-09659.herokuapp.com/getComments?search=${_id}`)
+      .then(res=>res.json())
+      .then(data=>{
+          setComment(data)
+          
       })
-      }
+          },[_id])
     return (
         <Col className=''>
-      <Card>
-        <Card.Img variant="top" src={img} className='img-fluid' />
-        <Card.Body>
-        <Link to={`/single-blog/${_id}`}> <Card.Title>{title}</Card.Title></Link>
-          <Card.Text>
-           {place}
-          </Card.Text>
-          <Card.Text>
-           {description}
-          </Card.Text>
-          <div className="d-flex justify-content-between align-items-center">
-          </div>
-          <div className='d-flex justify-content-between'>
-          <button className='btn btn-success'onClick={()=>{addToFavorite(job)}}>Add To favorite</button>
-          
-          </div>
-        </Card.Body>
-      </Card>
+     <Card>
+  <Link to={`/single-blog/${_id}`}><Card.Header>{title}</Card.Header></Link>
+  <span className='mt-1 text-success'><FontAwesomeIcon className='text-primary' icon={faSearchLocation} /> {place}</span>
+  <Card.Body>
+    <blockquote className="blockquote mb-0">
+      <p>
+        {' '}
+        This is most visited place. May peoples come here to visit. This is most visited place. May peoples come here to visit.
+        erat a ante.{' '}
+      </p>
+      <footer className="blockquote-footer">
+        Shared by <cite title="Source Title">{email}</cite>
+      </footer>
+      <small>{comment?.length} Comment</small>
+    </blockquote>
+  </Card.Body>
+</Card>
     </Col>
     );
 };

@@ -10,9 +10,9 @@ const Dashboard = () => {
         <div className='col-lg-3 sidebar'>
      <NavLink as={Link} to="create"><li className='text-light'>Create-Admin</li></NavLink>
      <NavLink as={Link} to='admin'><li>Manage-AllBlogs</li></NavLink>
-     <li>hello</li>
         </div>
         <div className='col-lg-9'>
+            {<h4>This is Your Dashboard</h4>}
         <Outlet/>
         </div>
     </div>

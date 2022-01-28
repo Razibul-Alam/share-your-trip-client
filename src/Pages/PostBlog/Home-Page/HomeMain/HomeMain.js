@@ -6,10 +6,11 @@ import Banner from './../Banner/Banner';
 
 
 const HomeMain = () => {
-    const[category,setCategory]=useState('e')
+    const[category,setCategory]=useState('')
     const selectSector =(category)=>{
         setCategory(category)
             }
+            console.log(category)
     return (
         <>
         <Banner/>

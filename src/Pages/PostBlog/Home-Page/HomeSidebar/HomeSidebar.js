@@ -19,7 +19,7 @@ console.log(sectors)
     return (
         <div className='mt-5'>
            <ListGroup>
-  {sectors?.map(sector=><ListGroup.Item className='bg-dark border-0 text-light' onClick={()=>{selectSector('g')}}>{sector.title}</ListGroup.Item>)}
+  {sectors?.map(sector=><ListGroup.Item className='bg-dark border-0 text-light' onClick={()=>{selectSector(sector.category)}}>{sector.title}</ListGroup.Item>)}
 </ListGroup>
           </div>
               

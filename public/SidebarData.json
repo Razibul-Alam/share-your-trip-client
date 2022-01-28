@@ -1,33 +1,33 @@
 [
     {
         "id": 1,
-        "title": "Cox-bazar",
-        "category":"sea-beach"
+        "title": "Most-Popular",
+        "category":"popular"
        
       },
     {
         "id": 2,
-        "title": "Everest",
+        "title": "Mountain-Hill",
         "category":"mountain"
        
       },
     {
         "id": 3,
-        "title": "Sundarban",
-        "category":"forest"
+        "title": "Island",
+        "category":"island"
        
       },
     {
         "id": 4,
-        "title": "Kashmir",
-        "category":"land"
+        "title": "Ancient-tradition",
+        "category":"ancient"
        
       },
    
     {
         "id": 5,
-        "title": "Tajmahal",
-        "category":"incident"
+        "title": "Common",
+        "category":""
        
       }
    

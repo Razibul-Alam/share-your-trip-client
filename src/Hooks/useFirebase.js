@@ -4,6 +4,7 @@ import { GoogleAuthProvider,getAuth, signInWithPopup,signOut ,createUserWithEmai
 import {useEffect,useState } from "react";
 import { firebaseConfig } from "../FirebaseConfig/FirebaseConfig";
 
+
 const provider = new GoogleAuthProvider();
 const firebaseApp =initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
@@ -22,7 +23,7 @@ const loginWithGoogle=()=>{
         }
        
         // resister user
-        const registerUser=(email,password,name,history)=>{
+        const registerUser=(email,password,name,navigate)=>{
           setAuthError('');
           setIsLoading(true);
           createUserWithEmailAndPassword(auth, email, password)
@@ -32,13 +33,13 @@ const loginWithGoogle=()=>{
                   setUser(newUser)
                   const dbUser={email:email,displayName:name,role:'user'}
                   savedUserToDatabase(dbUser)
+                  navigate('/')
                    // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                   displayName: name
               }).then(() => {
               }).catch((error) => {
               });
-              // history.replace('/');
               })
               .catch((error) => {
                   setAuthError(error.message);
@@ -55,14 +56,14 @@ const savedUserToDatabase=(user)=>{
 
 }
         // login user with email and password
-        const loginWithEmail=(email,password,location,history)=>{
+        const loginWithEmail=(email,password,navigate)=>{
           setAuthError('');
           setIsLoading(true);
           signInWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
-                  const destination = location?.state?.from || '/';
-                  history.replace(destination);
+  
                   setAuthError('');
+                  navigate('/')
               })
               .catch((error) => {
                   setAuthError(error.message);

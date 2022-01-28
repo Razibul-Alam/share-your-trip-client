@@ -7,7 +7,7 @@ const Footer = () => {
     <>
     <FooterMain/>
         <div className="bg-dark py-3">
-           <p className='text-light text-center'>Share-Trip developed by Razibul Raju</p>  
+           <p className='text-light text-center'>Share-YourTrip developed by Razibul Raju</p>  
         </div>
         </>
     );

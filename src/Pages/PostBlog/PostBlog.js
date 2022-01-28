@@ -27,8 +27,9 @@ statusInfo='Approved'
             description:data.description,
             status:statusInfo,
             cost:data.cost,
-            Date:new Date().toLocaleDateString,
+            date:new Date().toLocaleString(),
             email:user.email,
+            category:data.category,
             img:imgUrl,
         }
       axios.post('https://dry-mesa-09659.herokuapp.com/addBlog',info)
@@ -65,6 +66,7 @@ statusInfo='Approved'
    <form onSubmit={handleSubmit(onSubmit)}>
    <input className="form-control mt-2"  type="text" placeholder="Title" {...register("title",{ required: true })} />
    <input className="form-control mt-2"  type="text" placeholder="place" {...register("place",{ required: true })} />
+   <input className="form-control mt-2"  type="text" placeholder="category" {...register("category",{ required: true })} />
    <input className="form-control mt-2"  type="text" placeholder="cost" {...register("cost",{ required: true })} />
    <input className="form-control mt-2"  type="textArea" placeholder="Description" {...register("description", { required: true })} />
    <input className="form-control mt-2"

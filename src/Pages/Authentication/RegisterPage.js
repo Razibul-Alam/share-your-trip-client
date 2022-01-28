@@ -6,12 +6,12 @@ import useAuth from '../../Hooks/useAuth';
 import {useNavigate} from 'react-router'
 
 const RegisterPage = () => {
-    const history=useNavigate()
+    const navigate=useNavigate()
     const {registerUser,authError}=useAuth()
       const { register, handleSubmit,formState: { errors } } = useForm();
 
     const onSubmit = data =>{
-     registerUser(data.email,data.password,data.name,history)
+     registerUser(data.email,data.password,data.name,navigate)
     }
   
     return (
