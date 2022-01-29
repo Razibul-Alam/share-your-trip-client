@@ -51,7 +51,7 @@ const BlogDetails = () => {
           },)
     return (
       <>
-        <div className='d-flex justify-content-center my-5'>
+        <div className='d-flex justify-content-center my-5 p-4'>
         <Card>
   <Card.Header>{singleBlog?.title}</Card.Header>
   <Card.Body>
@@ -76,7 +76,7 @@ const BlogDetails = () => {
           {comment?.length} Comments
           {comment?.map(com=><Card body><p className='text-primary'><FontAwesomeIcon icon={faUser} /> {com.email}</p>{com.comment}</Card>)}</div>
         <div className="mt-4 d-flex justify-content-center row">
-         <div className="p-4 rounded col-lg-8 col-sm-10 shadow">
+         <div className="p-3 rounded col-lg-6 col-sm-10 shadow">
          <ModalMessage show={show} setShow={setShow} message={'Succesfully created'} />
             <form onSubmit={handleSubmit(onSubmit)}>
     <input className="form-control mt-3" type="text" placeholder="Comment" {...register("sentence",{ required: true })} />
