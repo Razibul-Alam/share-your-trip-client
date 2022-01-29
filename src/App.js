@@ -15,6 +15,7 @@ import MyBlogs from './Pages/Users/MyBlogs';
 import PrivateRoute from './Pages/Authentication/PrivateRoute';
 import EmailLogin from './Pages/Authentication/EmailLogin';
 import RegisterPage from './Pages/Authentication/RegisterPage';
+import BlogUpdate from './Pages/Admin-Dashboard/BlogUpdate';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/dashboard/*" element={<PrivateRoute><Dashboard/></PrivateRoute>}>
         <Route path="create" element={<CreateAdmin/>} />
         <Route path="admin" element={<ManageAllBlogs/>} />
+       <Route path="admin/update" element={<BlogUpdate/>} />
       </Route>
           </Routes>
       <Footer/>

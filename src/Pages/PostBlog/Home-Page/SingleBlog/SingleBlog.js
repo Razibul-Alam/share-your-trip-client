@@ -31,7 +31,7 @@ const SingleBlog = ({job}) => {
       <footer className="blockquote-footer">
         Shared by <cite title="Source Title">{email}</cite>
       </footer>
-      <small>{comment?.length} Comment</small>
+      <Link to={`/single-blog/${_id}`}><small>{comment?.length} Comment</small></Link>
     </blockquote>
   </Card.Body>
 </Card>

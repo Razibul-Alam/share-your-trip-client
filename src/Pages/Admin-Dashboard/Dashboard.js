@@ -8,7 +8,7 @@ const Dashboard = () => {
     return (
         <div className='row'>
         <div className='col-lg-3 sidebar'>
-     <NavLink as={Link} to="create"><li className='text-light'>Create-Admin</li></NavLink>
+     <NavLink as={Link} to="create"><li>Create-Admin</li></NavLink>
      <NavLink as={Link} to='admin'><li>Manage-AllBlogs</li></NavLink>
         </div>
         <div className='col-lg-9'>

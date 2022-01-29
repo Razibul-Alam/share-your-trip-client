@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios'
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, NavLink } from 'react-bootstrap';
 import ModalMessage from './../Users/ModalMessage';
 import useAuth from '../../Hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 
 const ManageAllBlogs = () => {
@@ -33,23 +34,12 @@ const ManageAllBlogs = () => {
         }
        }
         
-      //  approve blog 
-      const approveBlog=()=>{
-        const testy={test:'hello'}
-        axios.post('https://dry-mesa-09659.herokuapp.com/approveBlog',testy)
-        .then(response => { 
-          console.log(response.data)
-          if(response.data.insertedId){
-            handleShow()
-          }
-        });
-      }
        // booking approve handle
     const approveOrder=(id)=>{
         const approval={status:`Approved by ${user.email} `,id:id}
   axios.put('https://dry-mesa-09659.herokuapp.com/updateStatus',approval)
   .then((result)=>console.log(result))
-  approveBlog()
+  approveOrder()
       }
     return (
         <>
@@ -65,6 +55,7 @@ const ManageAllBlogs = () => {
         <th>Status</th>
         <th>Action</th>
         <th>Action</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -75,8 +66,9 @@ const ManageAllBlogs = () => {
     <td>{order.email}</td>
     <td>{order?.place}</td>
     <td>{order?.status}</td>
-    <td><Button className='me-2' onClick={()=>{approveOrder(order?._id)}}>Approve</Button></td>
+    <td>{(order?.status=='Pending')?<Button className='me-2' onClick={()=>{approveOrder(order?._id)}}>Approve</Button>:<p>Approved</p>}</td>
     <td><Button variant='danger' onClick={()=>{cancelOrder(order?._id)}}>Cancel</Button></td>
+    <td><NavLink as={Link} to='update'><Button variant='success'>Update</Button></NavLink></td>
     
   </tr>)}
    
